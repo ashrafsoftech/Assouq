@@ -1,0 +1,102 @@
+.sliderOne {
+  position: relative;
+  /* top: 1.5em; */
+  height: 12em;
+  background-color: white;
+  border-radius: 0.4em;
+  overflow: hidden;
+  z-index: 1;
+  padding: 1em; /* minimal uniform padding */
+  margin: 2em 0; /* only vertical margin, no horizontal */
+}
+
+/* only the arrows container should allow overflow */
+.sliderOne .swiper {
+  overflow: visible;
+}
+/* let the internal swiper also allow overflow */
+.sliderOne .swiper {
+  overflow: visible;
+}
+
+/* make sure the wrapper doesn't clip */
+.sliderOne .swiper-wrapper {
+  overflow: visible;
+}
+
+/* style + position the arrows; ensure absolute positioning */
+.sliderOne .swiper-button-prev,
+.sliderOne .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 9999; /* big z-index so arrows appear above everything */
+  pointer-events: auto;
+  transition: background 0.15s;
+}
+
+/* push arrows outside the white card area (adjust values to taste) */
+.sliderOne .swiper-button-prev {
+  left: -35px;
+}
+.sliderOne .swiper-button-next {
+  right: -35px;
+}
+
+/* fallback if you prefer arrows inside */
+.sliderOne .swiper-button-prev.inside {
+  left: 8px;
+}
+.sliderOne .swiper-button-next.inside {
+  right: 8px;
+}
+
+/* hover effect */
+.sliderOne .swiper-button-prev:hover,
+.sliderOne .swiper-button-next:hover {
+  background: #f2f2f2;
+}
+
+/* if Swiper uses pseudo-elements for arrows, ensure they're visible */
+.sliderOne .swiper-button-prev::after,
+.sliderOne .swiper-button-next::after {
+  font-size: 18px;
+  color: inherit;
+  display: block;
+}
+
+.sliderOne .slide-item {
+  text-align: center;
+  transition: var(--transition);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.sliderOne .slide-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.sliderOne .slide-item p {
+  margin-top: 0.4em;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.sliderOne .slide-item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-4);
+}

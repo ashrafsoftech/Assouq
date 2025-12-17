@@ -1,0 +1,746 @@
+:root {
+  /* colors */
+  --primary-100: #fae8ff;
+  --primary-200: #f5d0fe;
+  --primary-300: #f0abfc;
+  --primary-400: #e879f9;
+  --primary-500: #d946ef;
+  --primary-600: #c026d3;
+  --primary-700: #a21caf;
+  --primary-800: #86198f;
+  --primary-900: #701a75;
+
+  /* grey */
+  --grey-50: #f8fafc;
+  --grey-100: #f1f5f9;
+  --grey-200: #e2e8f0;
+  --grey-300: #cbd5e1;
+  --grey-400: #94a3b8;
+  --grey-500: #64748b;
+  --grey-600: #475569;
+  --grey-700: #334155;
+  --grey-800: #1e293b;
+  --grey-900: #0f172a;
+
+  /* orange */
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316; /* main / primary */
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+  /* rest of the colors */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+
+  --small-text: 0.875rem;
+  --extra-small-text: 0.7em;
+  /* rest of the vars */
+  --backgroundColor: var(--grey-50);
+  --textColor: var(--grey-900);
+  --borderRadius: 0.25rem;
+  --letterSpacing: 1px;
+  --transition: 0.3s ease-in-out all;
+  --max-width: 1120px;
+  --fixed-width: 600px;
+
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+/* ======= GLOBAL WRAPPER ======= */
+.section-wrapper {
+  width: 90%;            /* keeps margin from edges */
+  max-width: 1200px;     /* same visual width cap */
+  margin: 0 auto;        /* centers everything */
+  box-sizing: border-box;
+}
+/* ===== Ensure uniform content width for main sections ===== */
+.menu,
+.menu-slider,
+#flashsale {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ============= HEADER =============== */
+@media screen and (min-width: 800px) {
+  header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    background-color: #f1f1f2;
+    align-items: center;
+    z-index: 100;
+  }
+
+  header #img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5em;
+  }
+  header #p {
+    font-size: 13px;
+  }
+  .sell {
+    position: relative;
+    color: orange;
+    text-decoration: none; /* remove default */
+    font-family: vollkorn;
+    font-size: 13px;
+  }
+
+  /* invisible underline initially */
+  .sell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px; /* just below the text */
+    width: 0;
+    height: 1.5px;
+    background: orange;
+    transition: var(--transition); /* smooth effect */
+  }
+
+  /* on hover → expand underline */
+  .sell:hover::after {
+    width: 100%;
+  }
+
+  header .logo {
+    width: 100px;
+    margin-left: 20rem;
+  }
+  .pay {
+    color: #c7acac;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 2em;
+  }
+  .pay .icon {
+    width: 30px;
+  }
+  .pay a {
+    color: #c7acac;
+    font-size: 13px;
+  }
+  .pay:hover,
+  a:hover {
+    color: rgb(89, 89, 236);
+  }
+}
+/* ============= Nav =============== */
+@media screen and (min-width: 1000px) {
+  nav {
+    position: sticky;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: var(--shadow-3);
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .nav.header {
+    align-self: center;
+    gap: 2em;
+  }
+
+  .nav-left {
+    bottom: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  /* Search section */
+  .search {
+    position: relative;
+    top: 0;
+    align-items: center;
+    display: flex;
+    min-width: 40rem;
+    margin: 0 auto;
+    max-width: 47rem;
+
+    z-index: 1000px;
+  }
+
+  /* Navigation items */
+
+  .items {
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+  .items p {
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 1em;
+    display: block;
+  }
+  .items a {
+    left: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+  }
+  .items .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--grey-500);
+    /* bottom: 0; */
+  }
+
+  .items .account-wrapper,
+  .items .help-wrapper {
+    position: relative;
+    transition: var(--transition);
+  }
+  .items .down,
+  .items .up {
+    display: block;
+    margin-left: 10px;
+  }
+  .items .account-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+  }
+
+  .items .account-dropdown,
+  .items .help-dropdown {
+    position: absolute;
+    top: 100%;
+    width: 13em;
+    right: 0;
+    background: var(--white);
+    box-shadow: var(--shadow-4);
+    border-radius: var(--borderRadius);
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    /* ANIMATION */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: dropdownSlideIn 0.3s ease-out forwards;
+    transform-origin: top;
+  }
+
+  /* Keyframe animation for dropdown appearance */
+  @keyframes dropdownSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scaleY(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  /* Optional: Add a subtle fade-out animation when closing */
+  .items .account-dropdown.closing,
+  .items .help-dropdown.closing {
+    animation: dropdownSlideOut 0.2s ease-in forwards;
+  }
+
+  @keyframes dropdownSlideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-5px) scaleY(0.9);
+    }
+  }
+
+  .items .account-dropdown ul,
+  .items .help-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .items .account-dropdown li,
+  .items .help-dropdown li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem; /* Add padding for better hover area */
+    border-radius: var(--borderRadius); /* Rounded corners */
+    transition: var(--transition); /* Smooth transition */
+
+    /* Stagger animation for list items */
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: listItemSlideIn 0.3s ease-out forwards;
+  }
+
+  /* Stagger the animation delay for each item */
+  .items .account-dropdown li:nth-child(1),
+  .items .help-dropdown li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .items .account-dropdown li:nth-child(2),
+  .items .help-dropdown li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .items .account-dropdown li:nth-child(3),
+  .items .help-dropdown li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .items .account-dropdown li:nth-child(4),
+  .items .help-dropdown li:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+  .items .account-dropdown li:nth-child(5),
+  .items .help-dropdown li:nth-child(5) {
+    animation-delay: 0.3s;
+  }
+  .items .account-dropdown li:nth-child(6),
+  .items .help-dropdown li:nth-child(6) {
+    animation-delay: 0.35s;
+  }
+
+  @keyframes listItemSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  /* Enhance the chevron rotation animation */
+  .items .up,
+  .items .down {
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Optional: Add a subtle bounce to the chevron */
+  .items .account-btn:hover .up,
+  .items .account-btn:hover .down {
+    transform: scale(1.1);
+  }
+
+  .items .help-dropdown li {
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start; /* Changed from 'left' to 'flex-start' - align left */
+    padding: 0.5rem; /* Consistent padding */
+  }
+  .items .account-dropdown a,
+  .items .help-dropdown a {
+    color: var(--grey-700);
+    text-decoration: none;
+    transition: var(--transition);
+    width: 100%; /* Make links take full width */
+    padding: 0; /* Add some vertical padding to links */
+  }
+  .items .account-dropdown a {
+    padding-left: 10px;
+  }
+  /* Full-width grey background on hover with darker text */
+  .items .account-dropdown li:hover,
+  .items .help-dropdown li:hover {
+    background-color: var(--grey-200); /* Full width grey background */
+    color: var(--grey-900); /* Darker text color */
+    transform: translateX(3px); /* Subtle slide effect on hover */
+  }
+
+  .items .account-dropdown li:hover a,
+  .items .help-dropdown li:hover a {
+    color: var(--grey-900); /* Darker text for links on hover */
+  }
+
+  /* Button hover styles - darker orange background */
+  .items .account-dropdown .signIn button a {
+    padding-left: 0;
+  }
+  .items .account-dropdown .signIn button {
+    width: 100%;
+    background-color: var(--orange-400);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    transition: var(--transition); /* Add smooth transition */
+  }
+
+  .items .account-dropdown .signIn button:hover {
+    background-color: var(--orange-500); /* Darker orange on hover */
+  }
+
+  .items .account-dropdown .signIn button a {
+    color: var(--white);
+    display: block;
+    width: 100%;
+  }
+
+  /* Special handling for Sign In button parent li to not conflict with button hover */
+  .items .account-dropdown .signIn:hover {
+    background-color: transparent; /* Override li hover for button container */
+  }
+
+  /* Also add styles for the Live Chat button if it needs similar treatment */
+  .items .help-dropdown button {
+    width: 100%;
+    background-color: var(--orange-400);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    transition: var(--transition);
+  }
+
+  .items .help-dropdown button:hover {
+    background-color: var(--orange-500);
+  }
+
+  .items .help-dropdown button a {
+    color: var(--white);
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+  /* Button animations */
+  .items .account-dropdown .signIn button,
+  .items .help-dropdown button {
+    transition: all 0.3s ease-out;
+  }
+
+  .items .account-dropdown .signIn button:hover,
+  .items .help-dropdown button:hover {
+    background-color: var(--orange-500);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-3);
+  }
+  .items .help-dropdown .livechat {
+    display: inline-flex;
+    font-size: 1em;
+    font-weight: bold;
+    justify-content: center;
+  }
+  .items .help-dropdown .livechat a {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .search {
+    position: relative;
+    top: 0;
+    align-items: center;
+    display: flex;
+    min-width: 30rem;
+    margin: 0 auto;
+    max-width: 47rem;
+
+    z-index: 1000px;
+  }
+}
+
+/* ============= BODY =============== */
+/* ============= MENU =============== */
+@media screen and (min-width: 1000px) {
+  .page {
+    position: relative;
+    top: 1em; /* or 0 if you want it to sit right under nav */
+    left: 0;
+  }
+
+  .page .call {
+    display: none;
+  }
+  .page .menu {
+    position: relative; /* make it the positioning context */
+    display: grid;
+    grid-template-columns: 12.5em 1fr 12.5em;
+    gap: 1em;
+    margin: 0 auto;
+    height: 23em; /* optional, just so it's tall */
+  }
+  .page .menu .menu-left {
+    display: block;
+    position: relative;
+    border-radius: 0.4em;
+    background-color: var(--white);
+    box-shadow: var(--shadow-4);
+  }
+
+  .page .menu .menu-extras .extra,
+  .page .menu .menu-extras .gif {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.1em;
+    /* background-color: red; */
+    /* height: 50%; */
+  }
+  /* ======= menu left ========= */
+  .page .menu .menu-left {
+    position: relative;
+    gap: 20px;
+    text-transform: capitalize;
+    padding: 0em 0.5em;
+  }
+  .page .menu .menu-left li {
+    font-size: 12px;
+    display: grip;
+    list-style: none;
+    margin: 0; /* no gaps */
+    padding: 0; /* let <a> handle padding */
+    /* padding-top: 1.2em; */
+  }
+  .page .menu .menu-left li a:hover {
+    color: var(--orange-400);
+  }
+  .page .menu .menu-left li a {
+    display: flex; /* keep icon + text aligned */
+    align-items: center;
+    width: 100%; /* stretch across li */
+    padding: 0.5em 0.5em; /* spacing inside */
+    color: var(--grey-800);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: var(--letterSpacing);
+    text-decoration: none;
+    line-height: 1.5; /* makes row taller */
+    white-space: nowrap; /* prevents breaking into 2 lines */
+    transition: var(--transition);
+  }
+  .page .menu .menu-left li a svg {
+    margin-right: 0.6em; /* space between icon and text */
+    font-size: 1.2em; /* optional: make icons a bit bigger */
+  }
+
+  .page .menu .menu-left .menu-item {
+    position: relative;
+  }
+
+  /* ======= menu slider ========= */
+  .menu-slider {
+    position: relative; /* make it a positioning context */
+    height: 23em;
+    border-radius: 0.4em;
+    background-color: none;
+    box-shadow: var(--shadow-4);
+    overflow: hidden;
+  }
+  /* force submenu to sit on top of page2 */
+  .submenu-grid {
+    position: absolute; /* take it out of normal flow */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /* fill the parent */
+    column-count: 3;
+    column-gap: 2em;
+    padding: 20px;
+    background: #fff;
+    border-radius: 0.4em;
+    box-shadow: var(--shadow-4);
+    z-index: 200; /* ensure it sits above "page2" */
+  }
+
+  /* Ensure each header + list stays together */
+  .submenu-column {
+    break-inside: avoid; /* don’t split header from its items */
+    margin-bottom: 1.5em;
+  }
+
+  .submenu-column h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: var(--letterSpacing);
+  }
+  .submenu-column hr {
+    margin-bottom: 8px;
+  }
+  .submenu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .submenu-column li {
+    margin-bottom: 8px;
+    font-size: 9px;
+    cursor: pointer;
+    letter-spacing: var(--letterSpacing);
+    color: var(--grey-500);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
+    transition: var(--transition);
+    white-space: nowrap; /* prevents breaking into 2 lines */
+  }
+
+  .submenu-column li:hover {
+    color: orange; /* just like Jumia’s hover */
+    padding-left: 1px;
+    font-size: 9.5px;
+    transition: var(--transition);
+  }
+
+  /* ======= menu extras ========= */
+  .page .menu .menu-extras {
+    display: block;
+    position: relative;
+    border-radius: 0.4em;
+
+    box-shadow: var(--shadow-4);
+  }
+  .page .menu .menu-extras .extra {
+    background-color: var(--white);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 47%;
+    padding: 0.7em;
+    align-items: center;
+    text-align: left;
+    justify-content: center;
+    color: var(--white);
+    border-radius: 0.4em;
+  }
+  .page .menu .menu-extras .extra div p {
+    display: flex;
+    gap: 0.4em;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--black);
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .page .menu .menu-extras .extra div p:hover {
+    padding-left: 2px;
+    transition: var(--transition);
+  }
+  .page .menu .menu-extras .extra div p a {
+    color: var(--black);
+  }
+  .page .menu .menu-extras .extra div span {
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+  }
+  .page .menu .menu-extras .gif {
+    height: 47%;
+    position: relative;
+    align-self: baseline;
+    background-color: var(--white);
+    border-radius: 0.4em;
+    margin-top: 1.3em;
+  }
+}
+
+/* ============= FLASHSALE =============== */
+/* Tablet and below: shrink image + card sizes */
+@media (max-width: 768px) {
+  #flashsale {
+    height: 18em;
+    /* margin: 0 1em; */
+  }
+
+  #flashsale header h2 {
+    font-size: 20px;
+  }
+
+  .flashsale-slider .slide-item {
+    height: 14em;
+  }
+
+  .flashsale-slider .slide-item img {
+    width: 120px;
+    height: 130px;
+  }
+
+  .flashsale-slider .slide-item .item-name {
+    font-size: 0.8rem;
+  }
+
+  .reduced-price {
+    font-size: 0.9rem;
+  }
+
+  .actual-price {
+    font-size: 0.6rem;
+  }
+
+  .items-left {
+    font-size: 0.7rem;
+  }
+
+  .progress-bar {
+    width: 85%;
+  }
+}
+/* Mobile (phones ≤ 426px): even smaller + tighter spacing */
+@media (max-width: 426px) {
+  #flashsale {
+    
+    /* margin: 0 0.6em; */
+    background: rgba(255, 0, 0, 0.1);
+  }
+  #flashsale .flashsale-slider .slide-item {
+    height: 13em;
+  }
+
+  .flashsale-slider .slide-item img {
+    width: 100px;
+    height: 110px;
+  }
+
+  .flashsale-slider .slide-item .item-name {
+    font-size: 0.75rem;
+  }
+
+  .reduced-price {
+    font-size: 0.8rem;
+  }
+
+  .actual-price {
+    font-size: 0.55rem;
+  }
+
+  .items-left {
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 375px) {
+  .flashsale-slider .slide-item .item-name {
+    background-color: red;
+  }
+}
