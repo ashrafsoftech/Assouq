@@ -54,18 +54,18 @@
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 /* ======= GLOBAL WRAPPER ======= */
 .section-wrapper {
-  width: 90%;            /* keeps margin from edges */
-  max-width: 1200px;     /* same visual width cap */
-  margin: 0 auto;        /* centers everything */
+  width: 95%; /* keeps margin from edges */
+  max-width: 1200px; /* same visual width cap */
+  margin: 0 auto; /* centers everything */
   box-sizing: border-box;
 }
 /* ===== Ensure uniform content width for main sections ===== */
@@ -465,11 +465,44 @@
     top: 0;
     align-items: center;
     display: flex;
-    min-width: 30rem;
+    min-width: 25rem;
     margin: 0 auto;
     max-width: 47rem;
 
     z-index: 1000px;
+  }
+}
+@media screen and (max-width: 426px) {
+  nav {
+    height: 80px;
+  }
+  .nav-left {
+    gap: 1rem;
+  }
+  .nav-toggle {
+    font-size: 1.2rem;
+  }
+  nav .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  .search{
+    top: 2.5em;
+  }
+  .search input {
+    width: 80%;
+    height: 30px;
+  }
+  .search button {
+    height: 30px;
+  }
+  .items {
+    gap: 0.5em;
+  }
+  .items .icon {
+    width: 17px;
+    height: 17px;
   }
 }
 
@@ -673,6 +706,13 @@
     height: 18em;
     /* margin: 0 1em; */
   }
+  #flashsale header .flashsale_title {
+    margin-left: 1em;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
+    gap: 0.3em;
+  }
 
   #flashsale header h2 {
     font-size: 20px;
@@ -710,7 +750,6 @@
 /* Mobile (phones ≤ 426px): even smaller + tighter spacing */
 @media (max-width: 426px) {
   #flashsale {
-    
     /* margin: 0 0.6em; */
     background: rgba(255, 0, 0, 0.1);
   }

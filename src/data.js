@@ -4,7 +4,7 @@ import {
   FaRegCommentDots,
   FaTicketAlt,
   FaRegHeart,
-  // FaTv,
+  FaTv,
   FaBlender,
   FaMobileAlt,
   FaHeartbeat,
@@ -330,7 +330,7 @@ export const menu = [
     id: 5,
     url: "/electronics",
     text: "Electronics",
-    icon: FaAppleAlt,
+    icon: FaTv,
     submenu: [
       {
         id: "sub1",
@@ -759,6 +759,7 @@ export const menu = [
     ],
   },
 ];
+
 import one from "./assets/pic/slider_pics/1.png";
 import two from "./assets/pic/slider_pics/8.png";
 import three from "./assets/pic/slider_pics/3.png";
@@ -803,6 +804,7 @@ export const slides = [
     alt: "Supermarket Discounts",
   },
 ];
+
 import socks from "./assets/pic/flashSale/socks.jpg";
 export const gallery = [
   { id: 1, image: socks, text: "Item One" },
@@ -817,6 +819,7 @@ export const gallery = [
   { id: 10, image: socks, text: "Item One" },
   { id: 11, image: socks, text: "Item Two" },
 ];
+
 import MensTrenchBlazers from "./assets/pic/flashSale/MensTrenchBlazers.jpg";
 export const flashsale = [
   {

@@ -57,6 +57,8 @@ export const UserProvider = ({ children }) => {
     return () => clearInterval(timer);
   }, [targetTime]);
 
+
+  //item sliders
   const hours = Math.floor(timeLeft / (1000 * 60 * 60));
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);

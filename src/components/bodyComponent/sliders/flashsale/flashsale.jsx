@@ -12,15 +12,23 @@ export const FlashSale = () => {
   return (
     <article id="flashsale">
       <header>
-        <h2>Flash Sale 🔥</h2>
-        <div className="countdown">
-          <span>Time Left: </span>
-          <span>
-            {String(hours).padStart(2, "0")}h :
-            {String(minutes).padStart(2, "0")}m :
-            {String(seconds).padStart(2, "0")}s
-          </span>
+        <div className="flashsale_title">
+          <h2>Flash Sale 🔥</h2>
+
+          <div className="countdown">
+            <span>Time Left: </span>
+
+            <b>
+              <span>
+                {String(hours).padStart(2, "0")}h :
+                {String(minutes).padStart(2, "0")}m :
+                {String(seconds).padStart(2, "0")}s
+              </span>
+            </b>
+          </div>
         </div>
+
+        <p>See All </p>
       </header>
 
       <div className="flashsale-slider">
