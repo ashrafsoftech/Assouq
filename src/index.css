@@ -11,6 +11,7 @@
 
 html {
   font-size: 100%;
+  overflow-x: hidden;
 } /*16px*/
 
 :root {
@@ -324,6 +325,7 @@ ul {
   margin-bottom: 2rem; /* consistent gap between each section */
 }
 body {
+  width: 100%;
   margin: 0;
   /* padding-top: 60px; */
   padding: 0;
@@ -333,6 +335,7 @@ body {
   line-height: 1;
   min-height: 100vh;
   color: var(--textColor);
+  overflow: hidden;
 }
 
 /* ============= HEADER =============== */
