@@ -11,18 +11,18 @@
 }
 
 /* only the arrows container should allow overflow */
-.sliderOne .swiper {
+/* .sliderOne .swiper {
   overflow: visible;
-}
+} */
 /* let the internal swiper also allow overflow */
-.sliderOne .swiper {
+/* .sliderOne .swiper {
   overflow: visible;
-}
+} */
 
 /* make sure the wrapper doesn't clip */
-.sliderOne .swiper-wrapper {
+/* .sliderOne .swiper-wrapper {
   overflow: visible;
-}
+} */
 
 /* style + position the arrows; ensure absolute positioning */
 .sliderOne .swiper-button-prev,
@@ -46,10 +46,10 @@
 
 /* push arrows outside the white card area (adjust values to taste) */
 .sliderOne .swiper-button-prev {
-  left: -35px;
+  left: 4px;
 }
 .sliderOne .swiper-button-next {
-  right: -35px;
+  right: 4px;
 }
 
 /* fallback if you prefer arrows inside */

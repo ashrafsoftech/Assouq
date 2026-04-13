@@ -52,9 +52,9 @@
   z-index: 1;
 }
 /* only the arrows container should allow overflow*/
-#flashsale .flashsale-slider .swiper {
+/* #flashsale .flashsale-slider .swiper {
   overflow: visible;
-}
+} */
 
 /* style + position the arrows; ensure absolute positioning */
 #flashsale .flashsale-slider .swiper-button-prev,
@@ -79,10 +79,10 @@
 
 /* push arrows outside the white card area (adjust values to taste) */
 #flashsale .flashsale-slider .swiper-button-prev {
-  left: -22px;
+  left: 4px;
 }
 #flashsale .flashsale-slider .swiper-button-next {
-  right: -22px;
+  right: 4px;
 }
 
 .flashsale-slider .slide-item {
